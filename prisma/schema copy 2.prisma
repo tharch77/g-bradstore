@@ -1,0 +1,35 @@
+import { PrismaClient } from '@prisma/client';
+
+// シングルトンパターン用のインスタンス作成関数
+const prismaClientSingleton = () => {
+  // 💡 adapter を外し、空のオブジェクト（または引数なし）で初期化します
+  return new PrismaClient();
+};
+
+declare const globalThis: {
+  prismaGlobal: ReturnType<typeof prismaClientSingleton>;
+} & typeof global;
+
+const prismaInstance = globalThis.prismaGlobal ?? prismaClientSingleton();
+
+// 元々定義されていた $extends 処理（price と rating の文字変換）をドッキングします
+export const prisma = prismaInstance.$extends({
+  result: {
+    product: {
+      price: {
+        needs: { price: true },
+        compute(product) {
+          return product.price.toString();
+        },
+      },
+      rating: {
+        needs: { rating: true },
+        compute(product) {
+          return product.rating.toString();
+        },
+      },
+    },
+  },
+});
+
+if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = prismaInstance;

@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    // "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    },
+
+    // "allowJs": true,     // ⭕ JSファイルの読み込みと実行を許可
+    "checkJs": false, // ⭕ JSファイル内の型チェックを無効化（警告を消す）
+    "noImplicitAny": false, // ⭕ 型が指定されていなくても警告しない
+    "strict": false // ⭕ 厳格な型チェックをすべて無効化（超重要）
+    // "skipLibCheck": true // ⭕ 外部ライブラリの型チェックをスキップ
+    // この設定をしておけば、
+    // Turbopack (next dev --turbo) も型チェックに時間を取られなくなるため、
+    // 開発時の動作スピードがさらに爆速になるという嬉しいメリットもあります。
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "tailwind.config.ts＿",
+    "設定/prisma.config/prisma.config.ts___",
+    "app/(auth)/page.tsx_"
+  ],
+  "exclude": ["node_modules"]
+}
