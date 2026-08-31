@@ -1,5 +1,20 @@
 # Prostore
 
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+git add .
+git commit -m "githubを管理している時。 リセット"
+git push -u origin main --force
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+git init
+git add .
+git commit -m "githubを管理している時。 リセット"
+git remote add origin https://github.com/tharch77/g-bradstore.git
+git branch -M main
+git push -u origin main --force
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
 A full featured Ecommerce website built with Next.js, TypeScript, PostgreSQL and Prisma.
 
 <img src="/public/images/screen.png" alt="Next.js Ecommerce" />
@@ -121,6 +136,8 @@ Create a Stripe account and get the publishable and secret key.
 **Example:**
 
 ```
+URLs
+
 
 ```
 
