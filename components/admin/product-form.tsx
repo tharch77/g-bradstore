@@ -320,20 +320,7 @@ const ProductForm = ({
                 />
               )}
 
-              {isFeatured && !banner && (
-                // <UploadButton
-                //   endpoint='imageUploader'
-                //   onClientUploadComplete={(res: { url: string }[]) => {
-                //     form.setValue('banner', res[0].url);
-                //   }}
-                //   onUploadError={(error: Error) => {
-                //     toast({
-                //       variant: 'destructive',
-                //       description: `ERROR! ${error.message}`,
-                //     });
-                //   }}
-                // />
-              )}
+              {isFeatured && !banner && null}
             </CardContent>
           </Card>
         </div>
