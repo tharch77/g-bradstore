@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'; // 💡これを先頭に置くだけでNext.jsのビルドテストを安全にスキップできます
+
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { updateOrderToPaid } from '@/lib/actions/order.actions';
