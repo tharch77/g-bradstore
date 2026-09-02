@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { createUploadthing, type FileRouter } from 'uploadthing/next';
 import { UploadThingError } from 'uploadthing/server';
 import { auth } from '@/auth';
