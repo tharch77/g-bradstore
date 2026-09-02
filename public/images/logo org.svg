@@ -9,6 +9,7 @@ viewBox="0 0 2048 2048"
    <![CDATA[
     .fil0 {fill:#FFCA28}
     .fil1 {fill:#FFFFFE;fill-rule:nonzero}
+    <!-- .fil1 {fill:#FFFFFE;fill-rule:nonzero} -->
    ]]>
   </style>
  </defs>
