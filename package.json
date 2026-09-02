@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build",
+    "build": "prisma generate && next build",
+    "gbuild": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
+    "pg": "prisma generate",
     "test": "jest",
     "test:watch": "jest --watch",
     "email": "cp .env ./node_modules/react-email && email dev --dir email --port 3001"
