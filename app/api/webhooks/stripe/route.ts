@@ -11,6 +11,13 @@ export const stripe = stripeKey
   : null;
 
 export async function POST(req: NextRequest) {
+  if (!stripe) {
+    return NextResponse.json(
+      { error: 'Stripe is not initialized' },
+      { status: 500 }
+    );
+  }
+
   // Build the webhook event
   const event = await Stripe.webhooks.constructEvent(
     await req.text(),
