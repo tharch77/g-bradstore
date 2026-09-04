@@ -4,12 +4,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { updateOrderToPaid } from '@/lib/actions/order.actions';
 
-const stripeKey = process.env.STRIPE_SECRET_KEY;
-
-export const stripe = stripeKey
-  ? new Stripe(stripeKey, { apiVersion: '2025-02-24.acacia' }) // 💡ここを指定された最新の日付に書き換え！
-  : null;
-
 export async function POST(req: NextRequest) {
   // Build the webhook event
   const event = await Stripe.webhooks.constructEvent(
