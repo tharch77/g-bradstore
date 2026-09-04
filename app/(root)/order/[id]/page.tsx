@@ -6,6 +6,8 @@ import { ShippingAddress } from '@/types';
 import { auth } from '@/auth';
 import Stripe from 'stripe';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Order Details',
 };

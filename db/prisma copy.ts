@@ -1,22 +1,20 @@
+import { Pool, neonConfig } from '@neondatabase/serverless';
+import { PrismaNeon } from '@prisma/adapter-neon';
 import { PrismaClient } from '@prisma/client';
+import ws from 'ws';
 
-// Next.jsのホットリロード（再読み込み）で接続が溢れるのを防ぐための設定
-const globalForPrisma = global as unknown as { prisma: PrismaClient };
+// Sets up WebSocket connections, which enables Neon to use WebSocket communication.
+neonConfig.webSocketConstructor = ws;
+const connectionString = `${process.env.DATABASE_URL}`;
 
-// アダプターを使わず、標準のPrismaClientを初期化します
-const basePrisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
-    log:
-      process.env.NODE_ENV === 'development'
-        ? ['query', 'error', 'warn']
-        : ['error'],
-  });
+// Creates a new connection pool using the provided connection string, allowing multiple concurrent connections.
+const pool = new Pool({ connectionString });
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = basePrisma;
+// Instantiates the Prisma adapter using the Neon connection pool to handle the connection between Prisma and Neon.
+const adapter = new PrismaNeon(pool);
 
-// 💡 既存の価格・評価の文字列変換（$extends）はそのまま綺麗に残します
-export const prisma = basePrisma.$extends({
+// Extends the PrismaClient with a custom result transformer to convert the price and rating fields to strings.
+export const prisma = new PrismaClient({ adapter }).$extends({
   result: {
     product: {
       price: {

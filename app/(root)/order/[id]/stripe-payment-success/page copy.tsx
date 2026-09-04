@@ -8,10 +8,13 @@ export const dynamic = 'force-dynamic';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
-export default async function StripePaymentSuccessPage({
+const SuccessPage = async ({
   params,
   searchParams,
-}) {
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ payment_intent: string }>;
+}) => {
   const { id } = await params;
   const { payment_intent: paymentIntentId } = await searchParams;
 
@@ -46,4 +49,6 @@ export default async function StripePaymentSuccessPage({
       </div>
     </div>
   );
-}
+};
+
+export default SuccessPage;
