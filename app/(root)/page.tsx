@@ -10,6 +10,7 @@ import sampleData from '@/db/sample-data';
 import ViewAllProductsButton from '@/components/view-all-products-button';
 import IconBoxes from '@/components/icon-boxes';
 import DealCountdown from '@/components/deal-countdown';
+import { Button } from '@/components/ui/button';
 
 // const latestProducts = await getLatestProducts();
 
@@ -19,9 +20,14 @@ const Homepage = async () => {
 
   return (
     <>
+      <Button asChild>
+        <a href='/delete' className=' hover:bg-gray-500!'>
+          <span />
+          <span>Delete</span>
+        </a>
+      </Button>
       {/* <ProductList data={sampleData.products} title='Newest Arrivals' /> */}
       <ProductList data={latestProducts} title='Newest Arrivals' />
-
       {/* {featuredProducts.length > 0 && (
         <ProductCarousel data={featuredProducts} />
       )}

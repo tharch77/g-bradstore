@@ -28,7 +28,9 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className='hidden md:block'>{/* <Search /> */}Search</div>
+        <div className='hidden md:block'>
+          <Search />
+        </div>
 
         <Menu />
       </div>

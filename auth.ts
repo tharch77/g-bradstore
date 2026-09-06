@@ -1,5 +1,5 @@
 import NextAuth from 'next-auth';
-import { authConfig } from './auth.config';
+import { authConfig } from './auth.config'; // ./auth.config.ts
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '@/db/prisma';
 import { cookies } from 'next/headers';
@@ -11,13 +11,17 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     signIn: '/sign-in',
     error: '/sign-in',
   },
+
   session: {
     strategy: 'jwt' as const,
     maxAge: 30 * 24 * 60 * 60, // 30 days
   },
-  adapter: PrismaAdapter(prisma),
+
+  adapter: PrismaAdapter(prisma), // integrate Next Auth with Prisma.
+
   providers: [
     CredentialsProvider({
+      // to integrate Next Auth with Prisma.
       credentials: {
         email: { type: 'email' },
         password: { type: 'password' },
@@ -54,7 +58,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
+
   callbacks: {
+    // functions that are called at different points
+    //  in the authentication process.
+    // Extend the existing callbacks from authConfig
     ...authConfig.callbacks,
     async session({ session, user, trigger, token }) {
       // Set the user ID from the token
@@ -69,6 +77,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
       return session;
     },
+
     async jwt({ token, user, trigger, session }) {
       // Assign user fields to token
       if (user) {

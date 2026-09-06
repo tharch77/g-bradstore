@@ -1,6 +1,6 @@
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["driverAdapters"]
+  //旧　previewFeatures = ["driverAdapters"]
 }
 
 datasource db {

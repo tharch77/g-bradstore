@@ -26,10 +26,10 @@ const ModeToggle = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild className=' m-0.5'>
         <Button
           variant='ghost'
-          className='focus-visible:ring-0 focus-visible:ring-offset-0'
+          className='focus-visible:ring-0 focus-visible:ring-offset-0 bg-amber-100'
         >
           {theme === 'system' ? (
             <SunMoon />
@@ -40,8 +40,14 @@ const ModeToggle = () => {
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+      <DropdownMenuContent
+        className='w-56 bg-amber-200 text-black'
+        align='end'
+        forceMount
+      >
+        <DropdownMenuLabel className='bg-amber-100 text-black'>
+          Appearance
+        </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuCheckboxItem
           checked={theme === 'system'}

@@ -9,8 +9,10 @@ const nextConfig: NextConfig = {
     staticGenerationRetryCount: 1,
   },
   typescript: {
+    // Will still allow production build with type errors!
     ignoreBuildErrors: true,
   },
+
   // 2. ESLintのエラーを無視する
   eslint: {
     ignoreDuringBuilds: true,

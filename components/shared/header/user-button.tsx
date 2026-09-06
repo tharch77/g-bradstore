@@ -8,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import { UserIcon } from 'lucide-react';
 
@@ -33,23 +34,30 @@ const UserButton = async () => {
           <div className='flex items-center'>
             <Button
               variant='ghost'
-              className='relativee w-8 h-8 rounded-full ml-2 flex items-center justify-center bg-gray-200'
+              className='relativee w-8 h-8 rounded-full ml-2 flex items-center justify-center bg-amber-200 text-black'
             >
               {firstInitial}
             </Button>
           </div>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className='w-56' align='end' forceMount>
-          <DropdownMenuLabel className='font-normal'>
+        <DropdownMenuContent
+          className='w-56 bg-amber-200 text-black'
+          align='end'
+          forceMount
+        >
+          <DropdownMenuLabel className='font-normal bg-amber-100'>
             <div className='flex flex-col space-y-1'>
               <div className='text-sm font-medium leading-none'>
                 {session.user?.name}
               </div>
-              <div className='text-sm text-muted-foreground leading-none'>
+              <div className='text-sm text-gray-600 leading-none'>
+                {/* <div className='text-sm text-muted-foreground leading-none'> */}
                 {session.user?.email}
               </div>
             </div>
           </DropdownMenuLabel>
+
+          <DropdownMenuSeparator className='bg-amber-500' />
 
           <DropdownMenuItem>
             <Link href='/user/profile' className='w-full'>
@@ -61,7 +69,6 @@ const UserButton = async () => {
               Order History
             </Link>
           </DropdownMenuItem>
-
           {session?.user?.role === 'admin' && (
             <DropdownMenuItem>
               <Link href='/admin/overview' className='w-full'>
@@ -69,6 +76,8 @@ const UserButton = async () => {
               </Link>
             </DropdownMenuItem>
           )}
+
+          <DropdownMenuSeparator className='bg-amber-500' />
 
           <DropdownMenuItem className='p-0 mb-1'>
             <form action={signOutUser} className='w-full'>
