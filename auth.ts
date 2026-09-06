@@ -59,6 +59,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
 
+  basePath: '/api/auth',
+
   callbacks: {
     // functions that are called at different points
     //  in the authentication process.
