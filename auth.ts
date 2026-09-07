@@ -63,6 +63,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
   secret: '4b2f00be377ffc4bccab696d61277ab5e93e72cd8ae4aaae6d8522751fe75a32',
   // the environment variable AUTH_SECRET, NEXTAUTH_SECRET
+  // Redeploy (with Deployment Cache disabled)
 
   callbacks: {
     // functions that are called at different points
