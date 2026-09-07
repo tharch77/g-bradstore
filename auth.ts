@@ -61,6 +61,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
   basePath: '/api/auth',
 
+  secret: '4b2f00be377ffc4bccab696d61277ab5e93e72cd8ae4aaae6d8522751fe75a32',
+  // the environment variable AUTH_SECRET, NEXTAUTH_SECRET
+
   callbacks: {
     // functions that are called at different points
     //  in the authentication process.
